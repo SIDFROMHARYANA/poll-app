@@ -1,0 +1,66 @@
+Poll Application RESTful API
+
+## Project Details
+
+This project implements a RESTful API for a poll application, allowing users to create, retrieve, and vote on polls. The API is built using Node.js with the Express framework and stores data in a MySQL database.
+
+
+
+## Setup Instructions
+
+1. Clone the Repository:
+  
+   git clone https://github.com/poll-app.git
+   cd poll-application-api
+
+2. Install Dependencies & Packages:
+
+npm install body-parser, express, mysql, nodemon
+   
+
+3.Database Setup:
+
+Create a MySQL database and run the SQL scripts provided in the database-scripts folder for schema setup and data seeding.
+Environment Variables:
+
+Create a .env file in the project root with the following variables:
+env
+
+DB_HOST=your-mysql-host
+DB_USER=your-mysql-username
+DB_PASSWORD=your-mysql-password
+DB_DATABASE=your-mysql-database
+Run the Application:
+
+ Database Schema
+The database schema includes tables for polls, questions, options, users, and poll analytics. Refer to the database-scripts folder for SQL scripts 
+
+ ## API Endpoints
+
+1. Poll Creation
+Endpoint: POST /api/polls
+Conditions:
+Poll title (string)
+Poll category (string)
+Start date (string in YYYY-MM-DD format)
+End date (string in YYYY-MM-DD format)
+Minimum reward (integer)
+Maximum reward (integer)
+
+2. Retrieve Polls
+
+Endpoint: GET /api/polls
+
+Response:
+List of created polls with details including title, category, start date, end date, total votes, number of question sets, and details of at least one question.
+
+3. Vote on Poll
+
+Endpoint: POST /api/polls/:pollId/vote
+
+Conditions:
+Specify pollId
+Include selected option for the question being answered
+Response:
+Reward amount earned by the user for submitting the poll. 
+
